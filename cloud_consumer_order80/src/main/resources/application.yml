@@ -1,0 +1,13 @@
+server:
+  port: 80
+
+
+eureka:
+  client:
+    register-with-eureka: true # 是否将自己注册进 EurekaServer 默认为 true
+    fetch-registry: true # 是否从 EurekaServer 抓取已有的信息，默认为 true 。集群必须设置为true才能配合ribbon使用负载均衡
+    service-url:
+      defaultZone: http://eureka7001.com:7001/eureka,http://eureka7002.com:7002/eureka
+spring:
+  application:
+    name: cloud-order-service

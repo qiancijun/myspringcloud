@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.qiancijun.cloud.dao.PaymentMapper">
+
+<!--    Payment getPaymentById(@Param("id") Long id);-->
+    <select id="getPaymentById" parameterType="java.lang.Long" resultType="com.qiancijun.cloud.entities.Payment">
+        select * from payment where id = #{id}
+    </select>
+<!--    Integer create(Payment payment);-->
+    <insert id="create" parameterType="com.qiancijun.cloud.entities.Payment" keyProperty="id">
+        insert into payment (serial) values (#{serial})
+    </insert>
+</mapper>
