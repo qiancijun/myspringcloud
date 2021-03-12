@@ -16,13 +16,16 @@
     <module>cloud-eureka-server7002</module>
     <module>cloud-eureka-server7001</module>
     <module>cloud-provider-payment8082</module>
-      <module>cloud-provider-payment8083</module>
-      <module>cloud-provider-consul-payment8085</module>
-      <module>cloud-consumer-feign-order80</module>
-      <module>cloud-provider-hystrix-payment8086</module>
+    <module>cloud-provider-payment8083</module>
+    <module>cloud-provider-consul-payment8085</module>
+    <module>cloud-consumer-feign-order80</module>
+    <module>cloud-provider-hystrix-payment8086</module>
     <module>cloud-provider-feign-hystrix-order80</module>
-      <module>cloud-consumer-hystrix-dashbord9001</module>
-      <module>cloud-gateway-gateway9527</module>
+    <module>cloud-consumer-hystrix-dashbord9001</module>
+    <module>cloud-gateway-gateway9527</module>
+    <module>cloud-config-server3344</module>
+    <module>cloud-config-client3355</module>
+    <module>cloud-config-client3366</module>
   </modules>
 
   <properties>

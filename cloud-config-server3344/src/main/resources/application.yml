@@ -1,0 +1,27 @@
+server:
+  port: 3344
+
+spring:
+  application:
+    name: cloud-config-center # 注册进eureka服务器的服务名
+  cloud:
+    config:
+      server:
+       git:
+         uri: https://github.com/qiancijun/SprintCloudConfig.git # git仓库
+         search-paths:
+           - SprintCloudConfig # 搜索目录
+         username: 769303522@qq.com
+         password: 20010206qianci
+      label: master # 读取分支
+
+eureka:
+  client:
+    service-url:
+      defaultZone: http://eureka7001.com:7001/eureka
+
+management:
+  endpoints: # 暴露Bus刷新配置的端点
+    web:
+      exposure:
+        include: "bus-refresh"
