@@ -1,0 +1,26 @@
+server:
+  port: 8802
+
+spring:
+  application:
+    name: cloud-stream-consumer
+  cloud:
+    stream:
+      bindings:
+        my_channel_input:
+          destination: study
+          group: groupA
+      default-binder: kafka
+
+  kafka:
+    bootstrap-servers: localhost:9092
+    producer:
+      key-serializer: org.apache.kafka.common.serialization.ByteArraySerializer
+      value-serializer: org.apache.kafka.common.serialization.ByteArraySerializer
+
+eureka:
+  client:
+    register-with-eureka: true # 是否将自己注册进 EurekaServer 默认为 true
+    fetch-registry: true # 是否从 EurekaServer 抓取已有的信息，默认为 true 。集群必须设置为true才能配合ribbon使用负载均衡
+    service-url:
+      defaultZone: http://eureka7001.com:7001/eureka
