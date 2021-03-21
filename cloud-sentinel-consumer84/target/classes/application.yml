@@ -1,0 +1,26 @@
+server:
+  port: 84
+
+spring:
+  application:
+    name: cloud-sentinel-consumer
+  cloud:
+    nacos:
+      discovery:
+        server-addr: localhost:8848 # Nacos 服务注册中心地址
+    sentinel:
+      transport:
+        dashboard: localhost:8080 # Sentinel Dashboard 地址
+        port: 8719 # 默认 8719 端口，假如被占用会自动从 8719 开始依次 +1 扫描，直到找到未被占用的端口
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: "*"
+
+service-url:
+  nacos-user-service: http://cloud-sentinel-service
+feign:
+  sentinel:
+    enabled: true

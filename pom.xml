@@ -34,6 +34,11 @@
       <module>cloud-consumer-nacos80</module>
       <module>cloud-config-nacos-client3377</module>
       <module>cloud-sentinel-service8401</module>
+      <module>cloud-sentinel-service8402</module>
+      <module>cloud-sentinel-consumer84</module>
+    <module>cloud-seata-orderService2001</module>
+      <module>cloud-seata-storageService2002</module>
+    <module>cloud-seata-accountService2003</module>
   </modules>
 
   <properties>
@@ -67,7 +72,7 @@
     <dependency>
       <groupId>org.springframework.cloud</groupId>
       <artifactId>spring-cloud-dependencies</artifactId>
-      <version>Hoxton.SR1</version>
+      <version>Hoxton.SR3</version>
       <type>pom</type>
       <scope>import</scope>
     </dependency>

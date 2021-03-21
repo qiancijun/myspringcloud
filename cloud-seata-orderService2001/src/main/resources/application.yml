@@ -1,0 +1,59 @@
+server:
+  port: 2001
+
+spring:
+  application:
+    name: cloud-seata-service
+  datasource:
+    url: jdbc:mysql://localhost:3306/seata_order?rewriteBatchedStatements=true&serverTimezone=GMT%2B8&useUnicode=true&characterEncoding=UTF-8
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    username: root
+    password: 200102
+  cloud:
+    nacos:
+      discovery:
+        server-addr: localhost:8848 # Nacos 服务注册中心地址
+    sentinel:
+      transport:
+        dashboard: localhost:8080 # Sentinel Dashboard 地址
+        port: 8719 # 默认 8719 端口，假如被占用会自动从 8719 开始依次 +1 扫描，直到找到未被占用的端口
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: "*"
+
+mybatis:
+  configuration:
+    map-underscore-to-camel-case: true
+    log-impl: org.apache.ibatis.logging.stdout.StdOutImpl
+  mapper-locations: classpath:mapper/*.xml
+
+seata:
+  enabled: true
+  enable-auto-data-source-proxy: true
+  tx-service-group: my_test_tx_group
+  registry:
+    type: nacos
+    nacos:
+      application: seata-server
+      server-addr: 127.0.0.1:8848
+      username: nacos
+      password: nacos
+      group: SEATA_GROUP
+  config:
+    type: nacos
+    nacos:
+      server-addr: 127.0.0.1:8848
+      username: nacos
+      password: nacos
+      namespace: 253c3e0e-b29c-4610-bf89-2653e5243c22
+      group: SEATA_GROUP
+  service:
+    vgroup-mapping:
+      my_test_tx_group: default
+    disable-global-transaction: false
+  client:
+    rm:
+      report-success-enable: false
